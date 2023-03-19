@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <%-include("partials/header.ejs")%>
+    <h1>Home</h1>
+
+    <div class="message-Content">
+        <%console.log(allMessages.length)%>
+        <%for(let i=0;i<allMessages.length;i++){%>
+        <%if(i==0){%>
+            <%console.log(allMessages[i].MessageTitle)%>
+          <h1>allMessages[i].MessageTitle</h1>
+            <button>Submit</button>
+         
+
+        <%}else{%>
+            <!-- <h2><%allMessages[i].MessageTitle%></h2>
+            <p><%allMessages[i].Message%></p> -->
+
+        <%}%>
+           
+
+        <%}%>
+    </div>
+
+
+    <%-include("partials/footer.ejs")%>
+
+</body>
+
+</html>
