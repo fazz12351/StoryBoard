@@ -1,5 +1,5 @@
 //jshint esversion:6
-let allMessages = [];
+let posts = [];
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -12,8 +12,8 @@ let message1 = {
 
 const app = express();
 
-allMessages.push(message1)
-allMessages.push(message1)
+posts.push(message1)
+
 
 
 app.set('view engine', 'ejs');
@@ -27,7 +27,7 @@ app.use(express.static("public"));
 
 app.get("/", function (req, res) {
   res.redirect("/Home")
- 
+
 })
 
 
@@ -35,14 +35,14 @@ app.get("/", function (req, res) {
 
 app.get("/about", function (req, res) {
   res.render("about", {
-    allMessages: allMessages
+    allMessages: posts
 
   })
 })
 
 app.get("/contact", function (req, res) {
   res.render("contact", {
-    allMessages: allMessages
+    allMessages: posts
 
   })
 })
@@ -55,7 +55,12 @@ app.get("/compose", function (req, res) {
 })
 
 app.post("/ComposeMessage", function (req, res) {
-  allMessages.push(req.body)
+  let data={
+    MessageTitle:req.body.MessageTitle,
+    Message:req.body.Message
+
+  }
+  posts.push(data)
   res.redirect("/")
 })
 
@@ -72,10 +77,9 @@ function checkMessages() {
 }
 app.get("/Home", function (req, res) {
   // checkMessages();
+
   res.render("home", {
-    allMessages: allMessages
+    allMessages: posts
 
   })
 })
-
-console.log(allMessages)

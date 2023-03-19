@@ -13,26 +13,16 @@
     <h1>Home</h1>
 
     <div class="message-Content">
-        <%console.log(allMessages.length)%>
         <%for(let i=0;i<allMessages.length;i++){%>
-        <%if(i==0){%>
-            <%console.log(allMessages[i].MessageTitle)%>
-          <h1>allMessages[i].MessageTitle</h1>
-            <button>Submit</button>
-         
-
-        <%}else{%>
-            <!-- <h2><%allMessages[i].MessageTitle%></h2>
-            <p><%allMessages[i].Message%></p> -->
-
+            <h1><%=allMessages[i].MessageTitle%></h1>
+            <p><%=allMessages[i].Message%></p>
         <%}%>
-           
 
-        <%}%>
     </div>
 
 
     <%-include("partials/footer.ejs")%>
+    <%console.log( allMessages)%>
 
 </body>
 
