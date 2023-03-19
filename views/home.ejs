@@ -16,13 +16,14 @@
         <%for(let i=0;i<allMessages.length;i++){%>
             <h1><%=allMessages[i].MessageTitle%></h1>
             <p><%=allMessages[i].Message%></p>
+            <%console.log(allMessages[i].MessageTitle)%>
         <%}%>
 
     </div>
 
 
     <%-include("partials/footer.ejs")%>
-    <%console.log( allMessages)%>
+  
 
 </body>
 
