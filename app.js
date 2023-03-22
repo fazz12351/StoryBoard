@@ -75,10 +75,22 @@ app.post("/ComposeMessage", function (req, res) {
   res.redirect("/")
 })
 
-app.get("/:message",function(req,res){
-  res.render("dynamic",{
-    Person:req.params.message
-  })
+app.get("/posts/:postName", function (req, res) {
+  let paramsToLower = req.params.postName.toLowerCase()
+
+
+  for (let i = 0; i < posts.length; i++) {
+    let titleToLower = posts[i].MessageTitle.toLowerCase();
+    console.log(titleToLower)
+    if (req.params.postName == posts[i].MessageTitle) {
+      res.render("dynamic",{
+        Person:req.params.postName
+      })
+    }
+
+  }
+
+
 })
 
 app.listen(3000, function () {
@@ -92,3 +104,4 @@ function checkMessages() {
     posts.splice(0, 1)
   }
 }
+
