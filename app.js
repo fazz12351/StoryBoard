@@ -75,6 +75,24 @@ app.post("/ComposeMessage", function (req, res) {
   res.redirect("/")
 })
 
+app.get("/posts/:postName", function (req, res) {
+  let paramsToLower = req.params.postName.toLowerCase()
+
+
+  for (let i = 0; i < posts.length; i++) {
+    let titleToLower = posts[i].MessageTitle.toLowerCase();
+    console.log(titleToLower)
+    if (req.params.postName == posts[i].MessageTitle) {
+      res.render("dynamic",{
+        Person:req.params.postName
+      })
+    }
+
+  }
+
+
+})
+
 app.listen(3000, function () {
   console.log("Server started on port 3000");
 });
@@ -86,3 +104,4 @@ function checkMessages() {
     posts.splice(0, 1)
   }
 }
+

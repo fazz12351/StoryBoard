@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><%=Person%></title>
 </head>
 
 <body>
     <%-include("partials/header.ejs")%>
-    <h1>Home</h1>
-
-    <div class="message-Content">
-        <%for(let i=0;i<allMessages.length;i++){%>
-            <h1><%=allMessages[i].MessageTitle%></h1>
-            <p><%=allMessages[i].Message%></p>
-        <%}%>
+    <div class="message-Content-Dynamic">
+        <h1> <%=Person%></h1>
+  
 
     </div>
 
 
     <%-include("partials/footer.ejs")%>
-
   
 
 </body>
