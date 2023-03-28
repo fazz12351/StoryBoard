@@ -17,6 +17,11 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"))
 
 
+// Load the full build.
+var _ = require('lodash');
+
+
+
 
 //this is the inital data sent to the array which displays all messages called posts and push the message in that
 let message1 = {
@@ -76,16 +81,14 @@ app.post("/ComposeMessage", function (req, res) {
 })
 
 app.get("/posts/:postName", function (req, res) {
-  let requestedTitle = req.params.postName.toLowerCase()
+  let requestedTitle = _.lowerCase(req.params.postName).split("")
 
-  for (let i = 0; i < posts.length; i++) {
-    let currentTitle = posts[i].Title.toLowerCase()
+  
 
-    if (currentTitle == requestedTitle) {
-      console.log("we have him in stock")
-    }
 
-  }
+
+  
+
 
 
 })
@@ -101,4 +104,6 @@ function checkMessages() {
     posts.splice(0, 1)
   }
 }
+
+
 
