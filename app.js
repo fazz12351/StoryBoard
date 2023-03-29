@@ -81,7 +81,19 @@ app.post("/ComposeMessage", function (req, res) {
 })
 
 app.get("/posts/:postName", function (req, res) {
-  let requestedTitle = _.lowerCase(req.params.postName).split("")
+  let requestedTitle = _.lowerCase(req.params.postName).trim()
+  
+
+  for(let i=0;i<posts.length;i++){
+    const postsTitles=_.lowerCase(posts[i].Title)
+    if(postsTitles==requestedTitle){
+      res.render("post",{
+        Posts:posts[i]
+
+      })
+    }
+
+  }
 
   
 
