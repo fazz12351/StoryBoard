@@ -88,7 +88,8 @@ app.get("/posts/:postName", function (req, res) {
     const postsTitles=_.lowerCase(posts[i].Title)
     if(postsTitles==requestedTitle){
       res.render("post",{
-        Posts:posts[i]
+        Title:posts[i].Title,
+        Message:posts[i].Message
 
       })
     }
