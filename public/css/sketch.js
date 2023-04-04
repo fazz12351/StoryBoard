@@ -1,4 +1,4 @@
-const { lowerCase } = require("lodash");
+
 
 function shortenParagraphs() {
     const messageLength = 20;
